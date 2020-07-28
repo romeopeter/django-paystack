@@ -1,3 +1,10 @@
+# Django
 env/
 requirements.txt
 db.sqlite3
+.env
+__pycache__/
+
+# React
+node_modules/
+main.js
