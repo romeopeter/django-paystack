@@ -12,7 +12,7 @@ class Product(models.Model):
 
 class Order(models.Model):
     """Order for product item"""
-    Product = models.ForeignKey(Product, max_length=200, blank=True, on_delete=models.DO_NOTHING)
+    product = models.ForeignKey(Product, max_length=200, blank=True, on_delete=models.DO_NOTHING)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
