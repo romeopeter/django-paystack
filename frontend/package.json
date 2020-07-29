@@ -19,5 +19,8 @@
     "react-dom": "^16.13.1",
     "webpack": "^4.44.0",
     "webpack-cli": "^3.3.12"
+  },
+  "dependencies": {
+    "react-paystack": "^3.0.1"
   }
 }
