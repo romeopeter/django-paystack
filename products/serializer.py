@@ -4,12 +4,15 @@ from .models import Product, Order
 
 class ProductSerializer(serializers.ModelSerializer):
     """Products model serializer"""
+
     class Meta:
-        model: Product
-        fields: ['id','name','description','image','price']
+        model = Product
+        fields = "__all__"
+
 
 class OrderSerializer(serializers.ModelSerializer):
-    """Products model serializer"""
+    """Order model serializer"""
+
     class Meta:
-        model: Order
-        fields: ['id','product', 'created_at']
+        model = Order
+        fields = "__all__"
