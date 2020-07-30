@@ -4,8 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack --mode development ./src/index.js --output ./static/frontend/main.js",
-    "build": "webpack --mode production ./src/index.js --ouput ./static/frontend/main.js"
+    "start": "npm run watch:css && npm run dev:react",
+    "build": "npm run build:css && npm run build:react",
+    "dev:react": "webpack --mode development ./src/index.js --output ./static/frontend/main.js",
+    "build:react": "webpack --mode production ./src/index.js --ouput ./static/frontend/main.js",
+    "watch:css": "postcss ./static/frontend/tailwind.css --output ./static/frontend/main.css",
+    "build:css": "postcss ./static/frontend/tailwind.css --output ./static/frontend/main.css"
   },
   "keywords": [],
   "author": "",
@@ -14,9 +18,12 @@
     "@babel/core": "^7.10.5",
     "@babel/preset-env": "^7.10.4",
     "@babel/preset-react": "^7.10.4",
+    "autoprefixer": "^9.8.5",
     "babel-loader": "^8.1.0",
+    "postcss-cli": "^7.1.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "tailwindcss": "^1.6.0",
     "webpack": "^4.44.0",
     "webpack-cli": "^3.3.12"
   },
