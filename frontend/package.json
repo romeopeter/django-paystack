@@ -28,6 +28,7 @@
     "webpack-cli": "^3.3.12"
   },
   "dependencies": {
-    "react-paystack": "^3.0.1"
+    "react-paystack": "^3.0.1",
+    "react-router-dom": "^5.2.0"
   }
 }
