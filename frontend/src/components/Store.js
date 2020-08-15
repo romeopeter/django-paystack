@@ -26,10 +26,10 @@ export default function Store() {
       });
   }, []);
 
-  useEffect(() => {
-    // console.log(carts);
-    // Send data to backend
-  }, [carts]);
+  // useEffect(() => {
+  //   console.log(carts);
+  //   Send data to backend
+  // }, [carts]);
 
   const addProductToCart = (
     event,
@@ -61,7 +61,7 @@ export default function Store() {
           <h1 className="font-bold text-center text-xl text-gray-600 lead-tight p-5 Product-header">
             BUY LUXURY FASHION PRODUCTS
           </h1>
-          <div className="cart"></div>
+          <div className="cart">Cart{carts.length > 0 ? carts.length : ""}</div>
         </div>
 
         {/*Two columns*/}
