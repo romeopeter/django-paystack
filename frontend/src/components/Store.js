@@ -6,6 +6,7 @@ import DocTitle from "./utilities/DocTitle";
 
 export default function Store() {
   const [state, setState] = useState([]);
+  const [carts, setCarts] = useState([]);
 
   useEffect(() => {
     fetch("/api/products/", {
@@ -25,6 +26,31 @@ export default function Store() {
       });
   }, []);
 
+  useEffect(() => {
+    // console.log(carts);
+    // Send data to backend
+  }, [carts]);
+
+  const addProductToCart = (
+    event,
+    productID,
+    productName,
+    productPrice,
+    productImage
+  ) => {
+    const cartItem = {
+      productID: productID,
+      productName: productName,
+      productPrice: productPrice,
+      productImage: productImage,
+    };
+
+    if (!carts.some((cartItem) => cartItem.productID === productID)) {
+      setCarts((prevCarts) => [...prevCarts, cartItem]);
+      event.target.textContent = "Added To Cart";
+    }
+  };
+
   return (
     <Fragment>
       {/*HTML document title*/}
@@ -35,6 +61,7 @@ export default function Store() {
           <h1 className="font-bold text-center text-xl text-gray-600 lead-tight p-5 Product-header">
             BUY LUXURY FASHION PRODUCTS
           </h1>
+          <div className="cart"></div>
         </div>
 
         {/*Two columns*/}
@@ -61,12 +88,20 @@ export default function Store() {
                       </span>
                     </div>
                     <div className="px-6 py-4">
-                      <Link
-                        to={`/checkout/${product.id}`}
+                      <button
+                        onClick={() =>
+                          addProductToCart(
+                            event,
+                            product.id,
+                            product.name,
+                            product.price,
+                            product.image
+                          )
+                        }
                         className="block w-full text-center bg-green-600 hover:bg-green-500 text-white px-4 py-2"
                       >
-                        Buy
-                      </Link>
+                        Add To Cart
+                      </button>
                     </div>
                   </div>
                 </div>
