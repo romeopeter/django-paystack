@@ -12,7 +12,7 @@ export default function App() {
       <Fragment>
         <Switch>
           <Route path="/" exact component={Store} />
-          <Route path="/checkout/:product_id" component={Checkout} />
+          {/*<Route path="/checkout/:product_id" component={Checkout} />*/}
         </Switch>
       </Fragment>
     </Router>
@@ -21,4 +21,3 @@ export default function App() {
 
 const container = document.getElementById("app");
 ReactDOM.render(<App />, container);
-yb;
