@@ -2,6 +2,8 @@ import React, { Fragment, useEffect, useState } from "react";
 
 import { Link } from "react-router-dom";
 
+import SimpleCrypto from "simple-crypto-js";
+
 import DocTitle from "./utilities/DocTitle";
 
 export default function Store() {
@@ -26,10 +28,15 @@ export default function Store() {
       });
   }, []);
 
-  // useEffect(() => {
-  //   console.log(carts);
-  //   Send data to backend
-  // }, [carts]);
+  useEffect(() => {
+    fetch("/carts/", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json;charset=utf-8",
+      },
+      body: carts.length > 0 && JSON.stringify(carts),
+    });
+  }, [carts]);
 
   const addProductToCart = (
     event,
@@ -38,16 +45,21 @@ export default function Store() {
     productPrice,
     productImage
   ) => {
-    const cartItem = {
+    const cartItemsObject = {
       productID: productID,
       productName: productName,
       productPrice: productPrice,
       productImage: productImage,
     };
 
-    if (!carts.some((cartItem) => cartItem.productID === productID)) {
-      setCarts((prevCarts) => [...prevCarts, cartItem]);
+    // Encrypt object and store in session
+    const _secretekey = SimpleCrypto.generateRandom();
+    const simpleCryto = new SimpleCrypto(_secretekey);
+
+    if (!carts.some((cart) => cart.productID === productID)) {
+      setCarts((prevCart) => [...prevCart, cartItemsObject]);
       event.target.textContent = "Added To Cart";
+      console.log(carts);
     }
   };
 
@@ -61,7 +73,7 @@ export default function Store() {
           <h1 className="font-bold text-center text-xl text-gray-600 lead-tight p-5 Product-header">
             BUY LUXURY FASHION PRODUCTS
           </h1>
-          <div className="cart">Cart{carts.length > 0 ? carts.length : ""}</div>
+          <div className="cart">{/*Cart count*/}</div>
         </div>
 
         {/*Two columns*/}
