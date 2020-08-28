@@ -29,13 +29,44 @@ export default function Store() {
   }, []);
 
   useEffect(() => {
+    const getCookie = (name) => {
+      let cookieValue = null;
+
+      if (document.cookie && document.cookie !== "") {
+        const cookies = document.cookie.split(";");
+        for (let cookie of cookies) {
+          const aCookie = cookie.trim();
+
+          // Check cookie name match
+          if (aCookie.substring(0, name.length + 1) === name + "=") {
+            cookieValue = decodeURIComponent(
+              aCookie.substring(name.length + 1)
+            );
+            break;
+          }
+        }
+      }
+
+      return cookieValue;
+    };
+
     fetch("/carts/", {
-      method: "POST",
       headers: {
         "Content-Type": "application/json;charset=utf-8",
+        "X-CSRFToken": getCookie("csrftoken"),
       },
-      body: carts.length > 0 && JSON.stringify(carts),
-    });
+      method: "POST",
+      body: carts.length === 0 ? "No Cart" : JSON.stringify(carts),
+      mode: "same-origin",
+    })
+      .then((res) => {
+        if (res.ok === 200) {
+          console.log(res.json());
+        }
+      })
+      .catch((err) => {
+        throw new Error(err);
+      });
   }, [carts]);
 
   const addProductToCart = (
