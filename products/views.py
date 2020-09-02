@@ -1,18 +1,11 @@
-from django.shortcuts import render
-
-from rest_framework import viewsets, generics
-from rest_framework.response import Response
+from rest_framework import generics, permissions
 
 from .models import Product
 from .serializer import ProductSerializer
 
 
-class ProductsViewSet(viewsets.ViewSet):
+class ProductListView(generics.ListAPIView):
     """List products viewset"""
 
-    def list(self, request):
-        queryset = Product.objects.all()
-        serializer = ProductSerializer(
-            queryset, many=True, context={"request": request}
-        )
-        return Response(serializer.data)
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer
