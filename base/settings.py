@@ -26,10 +26,14 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    # Local apps
     "products.apps.ProductsConfig",
     "frontend.apps.FrontendConfig",
     "cart.apps.CartConfig",
+    # 3rd party
     "rest_framework",
+    "rest_framework.authtoken",
+    "rest_auth",
 ]
 
 MIDDLEWARE = [
@@ -43,7 +47,11 @@ MIDDLEWARE = [
 ]
 
 REST_FRAMEWORK = {
-    "DEFAULT_PERMISSION_CASSES": ["rest_framework.permissions.IsAuthenticated",]
+    "DEFAULT_PERMISSION_CASSES": ["rest_framework.permissions.IsAuthenticated",],
+    "DEFAULT_AUTHENTICATION_CLASSES": [
+        "rest_framework.authentication.SessionAuthentication",
+        "rest_framework.authentication.TokenAuthentication",
+    ],
 }
 
 
