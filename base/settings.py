@@ -31,7 +31,7 @@ INSTALLED_APPS = [
     "products.apps.ProductsConfig",
     "frontend.apps.FrontendConfig",
     "cart.apps.CartConfig",
-    "account.apps.AccountConfig",
+    "accounts.apps.AccountsConfig",
     # 3rd party
     "rest_framework",
     "rest_framework.authtoken",
