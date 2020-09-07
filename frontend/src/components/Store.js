@@ -11,7 +11,7 @@ export default function Store() {
   const [carts, setCarts] = useState([]);
 
   useEffect(() => {
-    fetch("/api/products/", {
+    fetch("/api/v1/products", {
       method: "GET",
       headers: {
         "Content-Type": "application/json;charset=utf-8",
