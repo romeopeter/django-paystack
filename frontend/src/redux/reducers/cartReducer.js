@@ -1,12 +1,9 @@
-import { ADD_ITEM_TO_CART, DELETE_ITEM_FROM_CART } from "./actionTypes";
+import {
+  ADD_ITEM_TO_CART,
+  DELETE_ITEM_FROM_CART,
+} from "../actions/actionTypes";
 
-const initialState = {
-  cart: [],
-};
-
-const initialState = {};
-
-function rootReducer(state = initialState, action) {
+export default function cartReducer(state = [], action) {
   switch (action.types) {
     case ADD_ITEM_TO_CART:
       const {
