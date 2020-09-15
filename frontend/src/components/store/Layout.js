@@ -7,10 +7,18 @@ export default function Layout({ children }) {
         Created by <a href="#">Romeo Peter</a>
       </h4>
       <div id="contact-icon">
-        <i>UpWork</i>
-        <i>Github</i>
-        <i>Twitter</i>
-        <i>Instagram</i>
+        <i>
+          <a href="https://upwork.com/RomeoPeter">UpWork</a>
+        </i>
+        <i>
+          <a href="https://gitub.com/Romeo-Peter">Github</a>
+        </i>
+        <i>
+          <a href="https://twitter.com/_romeopeter">Twitter</a>
+        </i>
+        <i>
+          <a href="https://instagram.com/_romeopeter">Instagram</a>
+        </i>
       </div>
     </div>
   );
@@ -26,7 +34,8 @@ export default function Layout({ children }) {
           <li>Women</li>
         </ul>
         <div className="cart">
-          <i class="fas fa-shopping-cart"></i> 0
+          {/*<i class="fas fa-shopping-cart"></i>*/}
+          Carts 0
         </div>
       </nav>
       <main>{children}</main>
