@@ -1,5 +1,9 @@
-import React, { Fragment } from "react";
+import React from "react";
 import ReactDOM from "react-dom";
+
+import { Provider } from "react-redux";
+import { createStore } from "redux";
+import rootReducer from "../redux/reducers";
 
 import Home from "./store/Home";
 
@@ -10,4 +14,9 @@ export default function App() {
 }
 
 const container = document.getElementById("app");
-ReactDOM.render(<App />, container);
+ReactDOM.render(
+  <Provider store={createStore(rootReducer)}>
+    <App />
+  </Provider>,
+  container
+);
