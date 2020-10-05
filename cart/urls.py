@@ -1,6 +1,6 @@
 from django.urls import path
 
-from . import views
+from .views import AddItemToCart
 
-
-urlpatterns = [path("", views.cart, name="carts")]
+app_name = "cart"
+urlpatterns = [path("", AddItemToCart.as_view(), name="cart")]
