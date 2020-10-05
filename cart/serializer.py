@@ -5,5 +5,6 @@ from .models import Cart
 
 class CartSerializer(serializers.ModelSerializer):
     class Meta:
-        models = Cart
+        model = Cart
         fields = "__all__"
+        # exclude = ["product_image_url", "product_total"]
