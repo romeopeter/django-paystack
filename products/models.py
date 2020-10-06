@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.model import User
 
 
 class Product(models.Model):
@@ -6,7 +7,7 @@ class Product(models.Model):
 
     SIZE = (("S", "Small"), ("M", "Medium"), ("L", "Large"))
     SEX = (("M", "Male"), ("F", "Female"), ("U", "Unisex"))
-
+    user = models.ForeignKey(User, max_length=100, on_delete=models.CASCADE)
     name = models.CharField(max_length=100)
     description = models.TextField(null=True, blank=True)
     image = models.FileField(upload_to="uploads/%Y/%m/%d", null=True, blank=True)
