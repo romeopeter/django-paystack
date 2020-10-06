@@ -32,6 +32,7 @@ INSTALLED_APPS = [
     "frontend.apps.FrontendConfig",
     "cart.apps.CartConfig",
     "accounts.apps.AccountsConfig",
+    "billing.apps.BillingConfig",
     # 3rd party
     "rest_framework",
     "rest_framework.authtoken",
