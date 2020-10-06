@@ -2,12 +2,17 @@ from django.db import models
 
 
 class Product(models.Model):
-    """Product items"""
+    """Men product items class"""
 
-    name = models.CharField(max_length=200)
+    CHOICE = (("M", "Male"), ("F", "Female"))
+    SIZE = (("S", "Small"), ("M", "Medium"), ("L", "Large"))
+
+    name = models.CharField(max_length=100)
     description = models.TextField(null=True, blank=True)
     image = models.FileField(upload_to="uploads/%Y/%m/%d", null=True, blank=True)
-    price = models.FloatField(null=True, blank=True)
+    size = models.CharField(max_length=1, null=True, choices=SIZE)
+    sex = models.CharField(max_length=1, null=True, choices=CHOICE)
+    price = models.FloatField(null=True)
 
     def __str__(self):
         return self.name
