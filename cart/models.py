@@ -12,12 +12,14 @@ class Cart(models.Model):
     user = models.ForeignKey(
         User, null=True, verbose_name="cart owner", on_delete=models.DO_NOTHING
     )
-    product_name = models.CharField(max_length=100, null=True)
-    product_image_url = models.CharField(max_length=200, null=True)
-    product_subtotal = models.DecimalField(
+    name = models.CharField(max_length=100, null=True)
+    image_url = models.CharField(max_length=200, null=True)
+    sex = models.CharField(max_length=10, null=True)
+    size = models.CharField(max_length=10, null=True)
+    subtotal = models.DecimalField(
         default=0.00, max_digits=100, decimal_places=2, null=True
     )
-    product_total = models.DecimalField(
+    total = models.DecimalField(
         default=0.00, max_digits=100, decimal_places=2, null=True
     )
     date_added = models.DateTimeField(auto_now_add=True)
