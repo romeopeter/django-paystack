@@ -4,14 +4,14 @@ from django.db import models
 class Product(models.Model):
     """Men product items class"""
 
-    CHOICE = (("M", "Male"), ("F", "Female"), ("U", "Unisex"))
     SIZE = (("S", "Small"), ("M", "Medium"), ("L", "Large"))
+    SEX = (("M", "Male"), ("F", "Female"), ("U", "Unisex"))
 
     name = models.CharField(max_length=100)
     description = models.TextField(null=True, blank=True)
     image = models.FileField(upload_to="uploads/%Y/%m/%d", null=True, blank=True)
+    sex = models.CharField(max_length=1, null=True, choices=SEX)
     size = models.CharField(max_length=1, null=True, choices=SIZE)
-    sex = models.CharField(max_length=1, null=True, choices=CHOICE)
     price = models.FloatField(null=True)
 
     def __str__(self):
