@@ -25,9 +25,9 @@ class Cart(models.Model):
     date_added = models.DateTimeField(auto_now_add=True)
 
     def save(self, *args, **kwargs):
-        if self.product_subtotal > 0:
-            calculate_for_tax = float(self.product_subtotal) * float(1.8)
-            self.product_total = calculate_for_tax
+        if self.subtotal > 0:
+            calculate_for_tax = float(self.subtotal) * float(1.8)
+            self.total = calculate_for_tax
 
             super().save(*args, **kwargs)
 
