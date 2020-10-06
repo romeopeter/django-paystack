@@ -4,7 +4,7 @@ from django.db import models
 class Product(models.Model):
     """Men product items class"""
 
-    CHOICE = (("M", "Male"), ("F", "Female"))
+    CHOICE = (("M", "Male"), ("F", "Female"), ("U", "Unisex"))
     SIZE = (("S", "Small"), ("M", "Medium"), ("L", "Large"))
 
     name = models.CharField(max_length=100)
