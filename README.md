@@ -10,25 +10,25 @@ Front-end uses ReactJS and back-end runs on Django and Django REST Framework (DR
 
 1. **Clone or download repo**
 
-   `https://github.com/Romeo-Peter/django-paystack`
+    `https://github.com/Romeo-Peter/django-paystack`
 
 2. **Activate virtual environment**
 
-   Navigate to python virtual environment file and run it
+    Navigate to python virtual environment file and run it
 
-   ```shell
-   cd venv/scripts
-   ..\venv\scripts> activate.bat
-   ```
+    ```shell
+    cd venv/scripts
+    ..\venv\scripts> activate.bat
+    ```
 
 3. **Start server**
 
-   Run the Django development
+    Run the Django development
 
-   `python manage.py startserver`
+    `python manage.py startserver`
 
 4. **Runs server address**
 
-   Open browser and run server address to view project
+    Open browser and run server address to view project
 
-   `http//localhost:8000`
+    `http//localhost:8000`
