@@ -7,4 +7,4 @@ class CartSerializer(serializers.ModelSerializer):
     class Meta:
         model = Cart
         fields = "__all__"
-        # exclude = ["product_image_url", "product_total"]
+        extra_kwargs = {"user": {"read_only": True}}
