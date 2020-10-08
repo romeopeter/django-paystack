@@ -30,3 +30,13 @@ class AddItemToCart(APIView):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.error, status=status.HTTP_401_BAD_REQUEST)
+
+    def delete(self, request, pk, format=None):
+        """
+        Delete product from cart
+        """
+
+        cart = Cart.objects.get(pk=pk)
+        cart.delete()
+
+        return Response(status=status.HTTP_204_NO_CONTENT)
