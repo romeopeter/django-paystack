@@ -1,2 +1,0 @@
-export const ADD_ITEM_TO_CART = "ADD ITEM TO CART";
-export const DELETE_ITEM_FROM_CART = "DELETE ITEM FROM CART";
