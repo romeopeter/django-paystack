@@ -6,6 +6,4 @@ const rootReducer = combineReducers({
   cart: cartReducer,
 });
 
-console.log(rootReducer);
-
 export default rootReducer;
