@@ -16,17 +16,17 @@ export default function Layout({ children }) {
         </i>
         <i>
           <a href="https://gitub.com/Romeo-Peter">
-            <i class="fab fa-github-alt"></i>
+            <i className="fab fa-github-alt"></i>
           </a>
         </i>
         <i>
           <a href="https://twitter.com/_romeopeter">
-            <i class="fab fa-twitter"></i>
+            <i className="fab fa-twitter"></i>
           </a>
         </i>
         <i>
           <a href="https://instagram.com/_romeopeter">
-            <i class="fab fa-instagram"></i>
+            <i className="fab fa-instagram"></i>
           </a>
         </i>
       </div>
@@ -48,8 +48,9 @@ export default function Layout({ children }) {
           </li>
         </ul>
         <div className="cart">
-          {/*<i className="fas fa-shopping-cart"></i>*/}
-          <Link to="/checkout">Carts 0</Link>
+          <Link to="/cart">
+            Cart <i className="fas fa-shopping-cart"></i> 0
+          </Link>
         </div>
       </nav>
       <main>{children}</main>
