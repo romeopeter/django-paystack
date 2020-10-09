@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState } from "react";
+import React from "react";
 
 import Layout from "./Layout";
 
@@ -13,7 +13,7 @@ export default function Home() {
       <div id="landing-page">
         <div id="home-title">
           <h1 className="text-5xl font-medium lead-tight mb-10">
-            Fashionably Exurberant
+            Fashionably Exuberant
           </h1>
           <hr className="border-1 border-red-600 w-50" />
         </div>
