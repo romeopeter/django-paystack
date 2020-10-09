@@ -10,6 +10,7 @@ import rootReducer from "../redux/reducers/rootReducer";
 import Home from "./store/Home";
 import Men from "./store/Men";
 import Women from "./store/Women";
+import Cart from "./store/Cart";
 
 export default function App() {
   return <Home />;
@@ -22,6 +23,7 @@ ReactDOM.render(
       <Route path="/" exact component={Home} />
       <Route path="/men" component={Men} />
       <Route path="/women" component={Women} />
+      <Route path="/Cart" component={Cart} />
     </Router>
   </Provider>,
   container
