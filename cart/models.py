@@ -8,7 +8,7 @@ class Cart(models.Model):
     """Cart model table"""
 
     user = models.ForeignKey(
-        User, null=True, verbose_name="cart owner", on_delete=models.DO_NOTHING
+        User, verbose_name="cart owner", null=True, on_delete=models.DO_NOTHING
     )
     name = models.CharField(max_length=100, null=True)
     description = models.TextField(null=True, blank=True)
