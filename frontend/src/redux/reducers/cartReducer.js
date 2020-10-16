@@ -6,21 +6,17 @@ import {
 export default function cartReducer(state = [], action) {
   switch (action.types) {
     case ADD_ITEM_TO_CART:
-      const {
-        productId,
-        productName,
-        productPrice,
-        productImage,
-      } = action.payload.item;
+      const { id, name, image, sex, price } = action.payload.item;
 
       return {
         cart: [
           ...state.cart,
           {
-            productId: productId,
-            productName: productName,
-            productPrice: productPrice,
-            productImage: productImage,
+            id,
+            name,
+            image,
+            sex,
+            price,
           },
         ],
       };
