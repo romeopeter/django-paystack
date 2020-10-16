@@ -30,7 +30,7 @@ function ProductUI({ product, addItemToCart }) {
       return cookieValue;
     };
 
-    fetch("/carts/", {
+    /* fetch("/carts/", {
       headers: {
         "Content-Type": "application/json;charset=utf-8",
         "X-CSRFToken": getCookie("csrftoken"),
@@ -38,34 +38,20 @@ function ProductUI({ product, addItemToCart }) {
       method: "POST",
       body: state.length === 0 ? "No Cart" : JSON.stringify(state),
       mode: "same-origin",
-    })
-      .then((res) => {
+    }).then((res) => {
         if (res.ok === 200) {
           console.log(res.json());
         }
-      })
-      .catch((err) => {
+      }).catch((err) => {
         throw new Error(err);
-      });
+      });*/
   }, [state]);
 
-  const addToCart = (
-    event,
-    productID,
-    productName,
-    productPrice,
-    productImage
-  ) => {
-    const cartItems = {
-      productID: productID,
-      productName: productName,
-      productPrice: productPrice,
-      productImage: productImage,
-    };
+  const addToCart = (id, name, image_url, sex, price) => {
+    const cartItems = { id, name, image_url, sex, price };
 
     // Add cart item to store (redux store)
-    // addItemToCart(cartItems);
-    console.log(cartItems);
+    addItemToCart(cartItems);
   };
 
   return (
@@ -85,11 +71,11 @@ function ProductUI({ product, addItemToCart }) {
           <button
             onClick={() =>
               addToCart(
-                event,
                 product.id,
                 product.name,
-                product.price,
-                product.image
+                product.image,
+                product.sex,
+                product.price
               )
             }
             className="block w-full text-center bg-green-600 hover:bg-green-500 text-white px-4 py-2"
