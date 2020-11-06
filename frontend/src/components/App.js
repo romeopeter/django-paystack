@@ -3,10 +3,8 @@ import ReactDOM from "react-dom";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 // Redux
-import { createStore } from "redux";
 import { Provider } from "react-redux";
 import store from "../redux/store/store";
-import rootReducer from "../redux/reducers/rootReducer";
 
 // Components
 import Home from "./store/Home";
