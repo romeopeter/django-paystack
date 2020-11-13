@@ -4,12 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "npm run watch:css && npm run dev:react",
-    "build": "npm run build:css && npm run build:react",
+    "start": "npm run watch:css && npm run watch:sass && npm run dev:react",
+    "build": "npm run build:css && npm run build:react && npm run build:sass",
     "dev:react": "webpack --mode development ./src/index.js --output ./static/frontend/main.js",
+    "watch:css": "postcss ./static/frontend/tailwind.css --output ./static/frontend/style-tailwind.css",
+    "watch:sass": "node-sass ./static/sass/index.scss --output ./static/frontend/",
     "build:react": "webpack --mode production ./src/index.js --ouput ./static/frontend/main.js",
-    "watch:css": "postcss ./static/frontend/tailwind.css --output ./static/frontend/main.css",
-    "build:css": "postcss ./static/frontend/tailwind.css --output ./static/frontend/main.css"
+    "build:css": "postcss ./static/frontend/tailwind.css --output ./static/frontend/main.css",
+    "watch:build": "node-sass --watch ./static/frontend/sass/index.scss --output ./static/frontend/custom.css"
   },
   "keywords": [],
   "author": "",
@@ -30,7 +32,9 @@
     "webpack-cli": "^3.3.12"
   },
   "dependencies": {
+    "@babel/plugin-proposal-object-rest-spread": "^7.12.1",
     "@reduxjs/toolkit": "^1.4.0",
+    "node-sass": "^5.0.0",
     "react-paystack": "^3.0.1",
     "react-redux": "^7.2.1",
     "react-router-dom": "^5.2.0",
