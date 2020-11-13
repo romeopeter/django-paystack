@@ -4,29 +4,11 @@ import {
 } from "../actions/actionTypes";
 
 export default function cartReducer(state = [], action) {
-  switch (action.types) {
+  switch (action.type) {
     case ADD_ITEM_TO_CART:
-      const { id, name, image, sex, price } = action.payload.item;
-
-      return {
-        cart: [
-          ...state.cart,
-          {
-            id,
-            name,
-            image,
-            sex,
-            price,
-          },
-        ],
-      };
+      return [...state, action.payload];
     case DELETE_ITEM_FROM_CART:
-      return {
-        cart: [
-          ...state.cart,
-          state.cart.filter((item) => item.id !== action.payload),
-        ],
-      };
+      return state.filter((item) => item.id !== action.payload);
     default:
       return state;
   }
