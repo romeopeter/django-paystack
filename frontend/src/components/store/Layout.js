@@ -1,8 +1,9 @@
 import React, { Fragment } from "react";
 
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
+import { connect } from "react-redux";
 
-export default function Layout({ children }) {
+function Layout({ children, cart }) {
   const footer = (
     <div className="text-center text-md p-5 shadow-sm" id="creator-credit">
       <h4>
@@ -49,7 +50,7 @@ export default function Layout({ children }) {
         </ul>
         <div className="cart">
           <Link to="/cart">
-            Cart <i className="fas fa-shopping-cart"></i> 0
+            <i className="fas fa-shopping-cart"></i> {cart ? cart.length : 0}
           </Link>
         </div>
       </nav>
@@ -58,3 +59,10 @@ export default function Layout({ children }) {
     </Fragment>
   );
 }
+
+const mapStateToProps = (state) => {
+  const { cart } = state;
+  return { cart };
+};
+
+export default connect(mapStateToProps, null)(Layout);
